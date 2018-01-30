@@ -1,27 +1,27 @@
 import React from 'react'
-import { View,StyleSheet  } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { FontAwesome, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons'
 import { red, orange, blue, lightPurp, pink, white } from './colors'
 
-const styles = StyleSheet.create({
-    iconContainer: {
-      padding: 5,
-      borderRadius: 8,
-      width: 50,
-      height: 50,
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginRight: 20
-    },
-  })
-
-export function getDailyReminderValue() {
+export function getDailyReminderValue () {
   return {
     today: "👋 Don't forget to log your data today!"
   }
 }
 
-export function getMetricMetaInfo(metric) {
+const styles = StyleSheet.create({
+  iconContainer: {
+    padding: 5,
+    borderRadius: 8,
+    width: 50,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 20
+  },
+})
+
+export function getMetricMetaInfo (metric) {
   const info = {
     run: {
       displayName: 'Run',
@@ -34,7 +34,7 @@ export function getMetricMetaInfo(metric) {
           <View style={[styles.iconContainer, {backgroundColor: red}]}>
             <MaterialIcons
               name='directions-run'
-              color={black}
+              color={white}
               size={35}
             />
           </View>
@@ -52,7 +52,7 @@ export function getMetricMetaInfo(metric) {
           <View style={[styles.iconContainer, {backgroundColor: orange}]}>
             <MaterialCommunityIcons
               name='bike'
-              color={black}
+              color={white}
               size={32}
             />
           </View>
@@ -70,7 +70,7 @@ export function getMetricMetaInfo(metric) {
           <View style={[styles.iconContainer, {backgroundColor: blue}]}>
             <MaterialCommunityIcons
               name='swim'
-              color={black}
+              color={white}
               size={35}
             />
           </View>
@@ -88,7 +88,7 @@ export function getMetricMetaInfo(metric) {
           <View style={[styles.iconContainer, {backgroundColor: lightPurp}]}>
             <FontAwesome
               name='bed'
-              color={black}
+              color={white}
               size={30}
             />
           </View>
@@ -106,7 +106,7 @@ export function getMetricMetaInfo(metric) {
           <View style={[styles.iconContainer, {backgroundColor: pink}]}>
             <MaterialCommunityIcons
               name='food'
-              color={black}
+              color={white}
               size={35}
             />
           </View>
@@ -120,7 +120,8 @@ export function getMetricMetaInfo(metric) {
     : info[metric]
 }
 
-export function isBetween(num, x, y) {
+
+export function isBetween (num, x, y) {
   if (num >= x && num <= y) {
     return true
   }
@@ -128,7 +129,7 @@ export function isBetween(num, x, y) {
   return false
 }
 
-export function calculateDirection(heading) {
+export function calculateDirection (heading) {
   let direction = ''
 
   if (isBetween(heading, 0, 22.5)) {
@@ -156,7 +157,7 @@ export function calculateDirection(heading) {
   return direction
 }
 
-export function timeToString(time = Date.now()) {
+export function timeToString (time = Date.now()) {
   const date = new Date(time)
   const todayUTC = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()))
   return todayUTC.toISOString().split('T')[0]
